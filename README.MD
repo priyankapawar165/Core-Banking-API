@@ -45,8 +45,8 @@ This is backend application that allows to provide a list of REST API to support
 * Component
 * PostMapping
 * GetMapping
-* @NotBlank
-* @Valid
+* NotBlank
+* Valid
 
 
 ## Getting started
