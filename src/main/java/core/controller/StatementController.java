@@ -8,14 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class StatementController {
     @Autowired
     StatementDao statementDao;
 
-    @RequestMapping(path = "/getlist", method= RequestMethod.GET)
-    public int getStatementList(@RequestBody Transaction transaction){
-        statementList = statementDao.
+    @RequestMapping(path = "/statement", method= RequestMethod.POST)
+    public List<Transaction> getStatementList(@RequestBody Transaction transaction){
+        return statementDao.getStatementList(transaction);
     }
 
 }

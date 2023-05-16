@@ -46,36 +46,6 @@ public class JdbcAccountDao implements AccountDao {
         }
     }
 
-  /*  @Override
-    public BigDecimal executeTransaction(Transaction transaction) {
-        String sql = "INSERT INTO transaction(bank_account_id,amount,transaction_type,created_date) " +
-                " Values(?,?,?,?) " +
-                " RETURNING transaction_no";
-        String sql1 = "SELECT * FROM bank_account WHERE bank_account_id=? ";
-        String sql2 = "UPDATE bank_account SET account_balance=? WHERE  bank_account_id=?";
-        try {
-            BigDecimal dbBalance = new BigDecimal(0.0);
-            SqlRowSet queryResults = jdbcTemplate.queryForRowSet(sql1, transaction.getBankAccountId());
-            if (queryResults.next()) {
-                dbBalance = queryResults.getBigDecimal("account_balance");
-            }
-
-            if (transaction.getTransactionType().equals("deposit")) {
-                BigDecimal calculateBalance = dbBalance.add(transaction.getAmount());
-                jdbcTemplate.update(sql2, calculateBalance, transaction.getBankAccountId());
-            }
-
-            LocalDate currentDate = LocalDate.now();
-            BigDecimal newTransactionNo = jdbcTemplate.queryForObject(sql, BigDecimal.class, transaction.getBankAccountId(), transaction.getAmount(), transaction.getTransactionType(), currentDate);
-            return newTransactionNo;
-        } catch (CannotGetJdbcConnectionException e) {
-            throw new DaoException("Couldn't connect to DB", e);
-        } catch (BadSqlGrammarException e) {
-            throw new DaoException("SQL syntax error", e);
-        }
-
-    }*/
-
     private int generateAccountNo() {
         Random rand = new Random();
         int accountNumber = rand.nextInt(1000000000);

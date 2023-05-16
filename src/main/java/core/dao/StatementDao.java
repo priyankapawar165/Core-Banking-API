@@ -1,5 +1,10 @@
 package core.dao;
 
+import core.model.Transaction;
+
+import java.util.List;
+
 public interface StatementDao {
-    public List<>
+    List<Transaction> getStatementList(Transaction transaction);
+
 }
