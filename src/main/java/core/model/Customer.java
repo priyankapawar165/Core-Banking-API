@@ -1,9 +1,14 @@
 package core.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class Customer {
     private int customerId;
+    @NotBlank(message="The name field must not be blank.")
     private String name;
+    @NotBlank(message="The address field must not be blank.")
     private String address;
+    @NotBlank(message="The accountType field must not be blank.")
     private String accountType;
 
     public Customer(int customerId, String name, String address) {

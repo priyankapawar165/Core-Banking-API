@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class AccountOpenController {
 
@@ -15,7 +17,7 @@ public class AccountOpenController {
     AccountDao accountDao;
 
     @RequestMapping(path = "/create-account", method = RequestMethod.POST)
-    public int createAccount(@RequestBody Customer customer) {
+    public int createAccount(@Valid @RequestBody Customer customer) {
         int newAccount = accountDao.createAccount(customer);
         return newAccount;
     }
